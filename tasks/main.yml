@@ -1,0 +1,7 @@
+---
+# tasks file for ansible-swarm-manager-role
+  - name: open port 4000 for manager
+    ufw: rule=allow port=4000
+    
+  - name: run swarm master container
+    docker: image=swarm:{{ swarm_container_tag }} name=swarm-manager expose={{ swarm_manager_port }} ports={{ swarm_manager_port }}:{{ swarm_manager_port }} state=started command="-l debug manage -H :{{ swarm_manager_port }} --advertise {{ ansible_eth0.ipv4.address }}:{{ swarm_manager_port }} --replication {{ swarm_cluster_store_url }}"
