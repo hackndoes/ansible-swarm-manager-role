@@ -1,3 +1,2 @@
 ---
 # vars file for ansible-swarm-manager-role
-swarm_manager_port: 4000

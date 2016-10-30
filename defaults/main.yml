@@ -1,2 +1,5 @@
 ---
 # defaults file for ansible-swarm-manager-role
+swarm_manager_port: 4000
+swarm_node_port: "2375"
+swarm_container_tag: "1.2.5"
